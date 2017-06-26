@@ -1,10 +1,18 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <% if (htmlWebpackPlugin.options.trackJSToken && htmlWebpackPlugin.options.isProduction) { %>
+        <!-- BEGIN TRACKJS -->
+        <script type="text/javascript">
+            window._trackJs = { token: '<%=htmlWebpackPlugin.options.trackJSToken%>' };
+        </script>
+        <script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
+        <% } %>
+            <!-- END TRACKJS -->
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Document</title>
 </head>
 
 <body>
@@ -21,7 +29,6 @@
 
         </tbody>
     </table>
-    <script src="bundle.js"></script>
 </body>
 
 </html>
